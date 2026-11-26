@@ -18,6 +18,7 @@ import ReliefManage from './pages/admin/ReliefManage'
 import FundManage from './pages/admin/FundManage'
 import AdminRequests from './pages/admin/AdminRequests'
 import AdminFeedback from './pages/admin/AdminFeedback'
+import Messages from './pages/admin/Messages'
 import ResponderHome from './pages/responder/Home'
 
 function RootRedirect() {
@@ -114,6 +115,15 @@ export default function App() {
         element={
           <ProtectedRoute roles={[ROLES.ADMIN]}>
             <AdminFeedback />
+          </ProtectedRoute>
+        }
+      />
+
+            <Route
+        path="/messages"
+        element={
+          <ProtectedRoute roles={[ROLES.ADMIN, ROLES.RESCUE_TEAM, ROLES.NGO]}>
+            <Messages />
           </ProtectedRoute>
         }
       />
